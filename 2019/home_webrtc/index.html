@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+	<link href="./css/bootstrap.min.css" rel="stylesheet">
+	<link href="./css/home.css" rel="stylesheet">
+	<title>Home</title>
+	<script src="./js/matter.min.js"></script>
+	<script src="./js/matter-wrap.min.js"></script>
+	<script src="./js/peerjs.min.js"></script>
+	<script src="./js/qrcode.min.js"></script>
+	<script src="./js/network.js"></script>
+	<script src="./js/game.js"></script>
+	<style>
+		html, body, document {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+<div style="position:absolute;top:0px;left:0px;width:100%;height:100%">
+	<div class="h1 d-flex justify-content-center" id="title" style="padding-top:5%">Reinder wants to go home, early</div>
+	<div class="h4 d-flex justify-content-center" id="start" style="padding-top:1%">Waiting for two players on mobile</div>
+	<div class="h1" id="timer" style="color:#00bc8c;position:absolute;top:5%; right: 5%; visibility: hidden;">60.00</div>
+	<div id="qrcode">
+		<div id="clientlink"></div>
+	</div>
+	<div class="text-center" id="player1" style="position:absolute;bottom:20%; left: 15%">
+		<h3>player 1</h3>
+		<h4>Awaiting connection...</h4>
+	</div>
+	<div class="text-center" id="player2" style="position:absolute;bottom:20%; right: 15%">
+		<h3>player 2</h3>
+		<h4>Awaiting connection...</h4>
+	</div>
+</div>
+</body>
+</html>

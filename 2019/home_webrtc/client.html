@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Home</title>
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, user-scalable=no" meta name="viewport"/>
+
+	<link href="./css/bootstrap.min.css" rel="stylesheet">
+	<script src="js/peerjs.min.js"></script>
+	<script src="js/network.js"></script>
+	<style>
+		html, body {
+			width: 100%;
+			height: auto;
+			overflow: hidden;
+			touch-action: manipulation;
+			user-select: none;
+		}
+
+		* {
+			-webkit-user-select: none; /* Chrome all / Safari all */
+			-moz-user-select: none; /* Firefox all */
+			-ms-user-select: none;
+		}
+
+		.col {
+			height: 100vh;
+			background-color: #00a379;
+			border-right: 2px solid #222;
+			text-align: center;
+			line-height: 100vh
+		}
+
+		.col:active {
+			background-color: #00bc8c;
+		}
+
+		.container-fluid {
+			height: 100vh;
+		}
+	</style>
+</head>
+<body>
+
+<div class="container-fluid m-0 p-0">
+	<div class="row">
+		<div class="col" id="left">
+			Left
+		</div>
+		<div class="col" id="forward">
+			Forward
+		</div>
+		<div class="col" id="right">
+			Right
+		</div>
+	</div>
+</div>
+
+</body>
+
+<script>
+	let n = new Network(window.location.hash.slice(1));
+	window.addEventListener("hashchange", () => {
+		n.join(window.location.hash.slice(1));
+	});
+
+	function setButton(id, key) {
+		const l = document.getElementById(id);
+		l.addEventListener('touchstart', (e) => {
+			n.send({start: key});
+			e.preventDefault();
+		}, {passive: false});
+		l.addEventListener('touchend', (e) => {
+			n.send({end: key});
+			e.preventDefault();
+		}, {passive: false});
+	}
+
+	setButton('left', 'l');
+	setButton('forward', 'f');
+	setButton('right', 'r');
+
+
+	document.addEventListener('touchmove',
+			function (e) {
+				e.preventDefault();
+			}, {passive: false});
+
+	document.body.addEventListener('click', () => {
+	});
+</script>
+
+</html>
